@@ -20,4 +20,10 @@
     <!-- main activity george -->
     <string name="george_view">LONESOME GEORGE</string>
 
+    <!-- achievements activity -->
+    <string name="ach_display">Achievements</string>
+    <string name="friend_tortoise_img">Tortoise IMG</string>
+    <string name="friend_tortoise_name">Friend Name XXX</string>
+    <string name="friend_description_BTN">Detail</string>
+
 </resources>
