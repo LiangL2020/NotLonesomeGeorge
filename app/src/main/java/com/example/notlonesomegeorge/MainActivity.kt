@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        Log.i(mainActivityTag, "In MainActivity...")
+        Log.i(mainActivityTag, "In onCreate() MainActivity...")
 
         // INITIATE VARIABLES
         achBTN = findViewById(R.id.tortoiseBTN)
