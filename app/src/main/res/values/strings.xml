@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Not Lonesome George</string>
+
+    <!-- content descriptions for main activity bottom buttons -->
+    <string name="tortoiseBTN">Achievements Navigation</string>
+    <string name="hatBTN">Skills Navigation</string>
+    <string name="cameraBTN">Camera Navigation</string>
+    <string name="hamburgerBTN">Settings Navigation</string>
+
+    <!-- main activity top wealth levels -->
+    <!-- strings -->
+    <string name="level_display">LEVEL XX</string>
+    <string name="wealth_dandelion_num">MONEYXXX</string>
+    <string name="wealth_tortoise_num">FRIENDXXX</string>
+    <!-- content description -->
+    <string name="progress_bar">Progress Bar</string>
+    <string name="wealth_dandelion_img">Dandelion IMG</string>
+    <string name="wealth_tortoise_img">Tortoise IMG</string>
+
+    <!-- main activity george -->
+    <string name="george_view">LONESOME GEORGE</string>
+
+</resources>
