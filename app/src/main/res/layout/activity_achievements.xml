@@ -7,7 +7,6 @@
     tools:context=".AchievementsActivity"
     android:clipToPadding="false">
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -28,6 +27,9 @@
             android:id="@+id/achievements_recycler"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             tools:listitem="@layout/item_achievement" />
     </LinearLayout>
 

@@ -37,8 +37,8 @@ class AchievementAdapter(val activity: Activity, private val achievement: List<A
      * to reflect the item at the given position.
      */
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val cHomework = achievement[position]
-        holder.bind(cHomework)
+        val cAch = achievement[position]
+        holder.bind(cAch)
     }
 
     override fun getItemCount(): Int {
