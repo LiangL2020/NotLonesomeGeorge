@@ -11,13 +11,13 @@ import androidx.recyclerview.widget.RecyclerView
 class AchievementsActivity: AppCompatActivity() {
 
     // DECLARE VARIABLES
-    var achActivityTag = "mainActivityTag";
+    var activityTag = "activityTag";
     private lateinit var achRecyclerView: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_achievements)
-        Log.i(achActivityTag, "In onCreate() AchievementsActivity...")
+        Log.i(activityTag, "In onCreate() AchievementsActivity...")
 
         // SET UP RECYCLER VIEW FOR ACHIEVEMENTS
         achRecyclerView = findViewById(R.id.achievements_recycler)
@@ -27,17 +27,19 @@ class AchievementsActivity: AppCompatActivity() {
 
     // PROVIDE DATA SOURCE FOR ACHIEVEMENT LIST
     private fun getAchievementList(): List<Achievement> {
+        Log.i(activityTag, "In getAchievementList() AchievementsActivity...")
 
         var name: String
         val achievements = ArrayList<Achievement>()
+        val names = arrayOf<String>("Aimee", "Sosa", "Zoya", "Byrd", "Elize", "Benjamin",
+            "Josef", "Downes", "Roscoe", "Wall", "Aj", "Owens", "Renae", "Beaumont", "Jobe",
+            "Morales", "Murphy", "Moon", "Riccardo", "Hodge")
 
-        // CREATE 50 ACHIEVEMENTS
-        for (i in 1..50){
-            name = getString(R.string.friend_tortoise_name)
+        // CREATE 20 ACHIEVEMENTS
+        for (i in 1..20){
+            name = names[i-1]
             achievements.add(Achievement(name))
-            Log.i(achActivityTag,name)
         }
-
         return achievements
     }
 

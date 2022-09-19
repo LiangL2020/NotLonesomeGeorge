@@ -17,12 +17,12 @@ class MainActivity : AppCompatActivity() {
     private lateinit var achBTN: ImageButton
     private lateinit var skillBTN: ImageButton
 
-    var mainActivityTag = "mainActivityTag";
+    var activityTag = "activityTag";
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        Log.i(mainActivityTag, "In onCreate() MainActivity...")
+        Log.i(activityTag, "In onCreate() MainActivity...")
 
         // INITIATE VARIABLES
         achBTN = findViewById(R.id.tortoiseBTN)
@@ -30,14 +30,14 @@ class MainActivity : AppCompatActivity() {
 
         // DIRECT USER TO ACHIEVEMENTS ACTIVITY
         achBTN.setOnClickListener{
-            Log.i(mainActivityTag, "Directing to ACHIEVEMENTS activity...")
+            Log.i(activityTag, "Directing to ACHIEVEMENTS activity...")
             call_ach()
         }
     }
 
     // DIRECT USER TO ACHIEVEMENTS ACTIVITY
     private fun call_ach(){
-        Log.i(mainActivityTag, "In call_ach()...")
+        Log.i(activityTag, "In call_ach()...")
         val intent = Intent(this, AchievementsActivity::class.java)
         startActivity(intent)
     }

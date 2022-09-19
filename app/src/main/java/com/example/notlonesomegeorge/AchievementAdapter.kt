@@ -12,16 +12,15 @@ import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 
-private const val TAG = "AchievementAdapter"
+private const val TAG = "activityTag"
 
 /**
  * This is an important class that sits in between RecyclerView and the itemView
  * HomeworkAdapter provides a binding from an app-specific data set (homework) to views
  * that are displayed within a RecyclerView.
  */
-class AchievementAdapter(val activity: Activity, private val achievement: List<Achievement>) :
+class AchievementAdapter(val activity: Activity, private val achievements: List<Achievement>) :
     RecyclerView.Adapter<AchievementAdapter.ViewHolder>() {
-
     /**
      * Called when RecyclerView **needs** a new RecyclerView.ViewHolder of the given type to represent an item.
      */
@@ -37,12 +36,12 @@ class AchievementAdapter(val activity: Activity, private val achievement: List<A
      * to reflect the item at the given position.
      */
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val cAch = achievement[position]
+        val cAch = achievements[position]
         holder.bind(cAch)
     }
 
     override fun getItemCount(): Int {
-        return achievement.size
+        return achievements.size
     }
 
     /**
@@ -69,7 +68,6 @@ class AchievementAdapter(val activity: Activity, private val achievement: List<A
                 Toast.makeText(activity,"long clicked", Toast.LENGTH_SHORT).show()
                 true
             }
-
         }
 
         // obtaining the references to various view objects we want to manipulate

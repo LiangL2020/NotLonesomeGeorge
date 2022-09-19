@@ -21,9 +21,6 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="8dp"
-            android:paddingLeft="8dp"
-            android:paddingRight="8dp"
             android:background="@color/olive_super_light_yellow">
 
             <LinearLayout
@@ -47,10 +44,10 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="5"
                     android:textAlignment="center"
-                    android:textSize="17dp"
+                    android:textSize="17sp"
                     android:textColor="@color/olive_dark_green"
                     android:layout_gravity="center"
-                    tools:text="@string/friend_tortoise_name"/>
+                    tools:text="FRIEND NAME XXX"/>
 
                 <Button
                     android:id="@+id/friend_description_btn"
@@ -58,9 +55,9 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_gravity="center"
+                    android:text="@string/friend_description_BTN"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0"
-                    tools:text="@string/friend_description_BTN" />
+                    app:layout_constraintHorizontal_bias="0" />
 
             </LinearLayout>
 

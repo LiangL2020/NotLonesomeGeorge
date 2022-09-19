@@ -1,5 +1,3 @@
 package com.example.notlonesomegeorge
 
-data class Achievement(val name: String){
-
-}
+data class Achievement(val name: String)
