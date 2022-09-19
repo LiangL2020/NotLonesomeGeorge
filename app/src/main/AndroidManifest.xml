@@ -25,6 +25,9 @@
         <activity
             android:name=".AchievementsActivity"
             android:exported="false" />
+        <activity
+            android:name=".DescriptionActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

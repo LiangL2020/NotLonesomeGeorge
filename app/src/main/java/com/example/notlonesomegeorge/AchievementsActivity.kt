@@ -9,10 +9,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
+private const val activityTag = "activityTag";
+
 class AchievementsActivity: AppCompatActivity() {
 
-    // DECLARE VARIABLES
-    var activityTag = "activityTag";
+    val names = arrayOf<String>("Aimee", "Sosa", "Zoya", "Byrd", "Elize", "Benjamin",
+        "Josef", "Downes", "Roscoe", "Wall", "Aj", "Owens", "Renae", "Beaumont", "Jobe",
+        "Morales", "Murphy", "Moon", "Riccardo", "Hodge")
+
     private lateinit var achRecyclerView: RecyclerView
     private lateinit var addAchBTN: Button
     private lateinit var achievements: ArrayList<Achievement>
@@ -44,9 +48,6 @@ class AchievementsActivity: AppCompatActivity() {
 
         var name: String
         val achievements = ArrayList<Achievement>()
-        val names = arrayOf<String>("Aimee", "Sosa", "Zoya", "Byrd", "Elize", "Benjamin",
-            "Josef", "Downes", "Roscoe", "Wall", "Aj", "Owens", "Renae", "Beaumont", "Jobe",
-            "Morales", "Murphy", "Moon", "Riccardo", "Hodge")
 
         // CREATE x ACHIEVEMENTS
         for (i in 1..5){
@@ -60,9 +61,6 @@ class AchievementsActivity: AppCompatActivity() {
         Log.i(activityTag, "In getAchievementList() AchievementsActivity...")
 
         var name: String
-        val names = arrayOf<String>("Aimee", "Sosa", "Zoya", "Byrd", "Elize", "Benjamin",
-            "Josef", "Downes", "Roscoe", "Wall", "Aj", "Owens", "Renae", "Beaumont", "Jobe",
-            "Morales", "Murphy", "Moon", "Riccardo", "Hodge")
 
         // ADD ACHIEVEMENT TO LIST
         name = names[achievements.size]

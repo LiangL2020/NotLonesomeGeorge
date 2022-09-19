@@ -1,6 +1,7 @@
 package com.example.notlonesomegeorge
 
 import android.app.Activity
+import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.cardview.widget.CardView
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 
 private const val TAG = "activityTag"
@@ -61,7 +63,11 @@ class AchievementAdapter(val activity: Activity, private val achievements: List<
         fun bind(cAch: Achievement) {
             friendName.text = cAch.name
             launchButton.setOnClickListener {
-                Log.d(TAG, "button pressed")
+                Log.d(TAG, "button pressed for " + friendName.toString())
+                val intent = Intent(activity, DescriptionActivity::class.java).also {
+                    it.putExtra("friend_name_to_description", friendName.toString())
+                    activity.startActivity(it)
+                }
             }
 
             cardView.setOnLongClickListener {
@@ -72,9 +78,9 @@ class AchievementAdapter(val activity: Activity, private val achievements: List<
 
         // obtaining the references to various view objects we want to manipulate
         init {
-            friendIMG = itemView.findViewById(R.id.friend_img)
-            friendName = itemView.findViewById(R.id.friend_name)
-            launchButton = itemView.findViewById(R.id.friend_description_btn)
+            friendIMG = itemView.findViewById(R.id.item_friend_img)
+            friendName = itemView.findViewById(R.id.item_friend_name)
+            launchButton = itemView.findViewById(R.id.item_friend_description_btn)
             cardView = itemView.findViewById(R.id.achievementsCard)
         }
     }

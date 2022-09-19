@@ -26,4 +26,12 @@
     <string name="friend_tortoise_name">Friend Name XXX</string>
     <string name="friend_description_BTN">Detail</string>
 
+    <!-- description activity -->
+    <string name="description_display">Description</string>
+    <string name="friend_name">Name:</string>
+    <string name="friend_description">Skills:</string>
+
+    <!-- skills activity -->
+    <string name="skills_display">Skills</string>
+
 </resources>

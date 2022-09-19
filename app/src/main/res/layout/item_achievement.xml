@@ -31,7 +31,7 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/friend_img"
+                    android:id="@+id/item_friend_img"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="4"
@@ -39,7 +39,7 @@
                     app:srcCompat="@drawable/tortoise" />
 
                 <TextView
-                    android:id="@+id/friend_name"
+                    android:id="@+id/item_friend_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="5"
@@ -50,7 +50,7 @@
                     tools:text="FRIEND NAME XXX"/>
 
                 <Button
-                    android:id="@+id/friend_description_btn"
+                    android:id="@+id/item_friend_description_btn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
