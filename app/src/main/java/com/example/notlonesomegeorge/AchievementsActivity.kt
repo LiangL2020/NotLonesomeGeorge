@@ -31,8 +31,8 @@ class AchievementsActivity: AppCompatActivity() {
         var name: String
         val achievements = ArrayList<Achievement>()
 
-        // create 100 achievements!
-        for (i in 1..100){
+        // CREATE 50 ACHIEVEMENTS
+        for (i in 1..50){
             name = getString(R.string.friend_tortoise_name)
             achievements.add(Achievement(name))
             Log.i(achActivityTag,name)
