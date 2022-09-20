@@ -33,5 +33,6 @@
 
     <!-- skills activity -->
     <string name="skills_display">Skills</string>
+    <string name="george_clicked">george_clicked</string>
 
 </resources>
