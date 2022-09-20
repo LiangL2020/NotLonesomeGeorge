@@ -63,9 +63,9 @@ class AchievementAdapter(val activity: Activity, private val achievements: List<
         fun bind(cAch: Achievement) {
             friendName.text = cAch.name
             launchButton.setOnClickListener {
-                Log.d(TAG, "button pressed for " + friendName.toString())
+                Log.d(TAG, "button pressed for " + cAch.name)
                 val intent = Intent(activity, DescriptionActivity::class.java).also {
-                    it.putExtra("friend_name_to_description", friendName.toString())
+                    it.putExtra("friend_name_to_description", cAch.name)
                     activity.startActivity(it)
                 }
             }
