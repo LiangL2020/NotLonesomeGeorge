@@ -18,10 +18,10 @@
         android:textSize="20dp"
         app:cornerRadius="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/linearLayout" />
+        app:layout_constraintEnd_toEndOf="@+id/AchievementLinearLayout" />
 
     <LinearLayout
-        android:id="@+id/linearLayout"
+        android:id="@+id/AchievementLinearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">

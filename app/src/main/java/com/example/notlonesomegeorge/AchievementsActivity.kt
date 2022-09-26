@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-private const val activityTag = "activityTag";
+private const val TAG = "activityTag";
 
 class AchievementsActivity: AppCompatActivity() {
 
@@ -24,7 +24,7 @@ class AchievementsActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_achievements)
-        Log.i(activityTag, "In onCreate() AchievementsActivity...")
+        Log.i(TAG, "In onCreate() AchievementsActivity...")
 
         // DEFINE VARIABLES
         addAchBTN = findViewById(R.id.addAchievementBTN)
@@ -36,7 +36,7 @@ class AchievementsActivity: AppCompatActivity() {
         achRecyclerView.adapter = AchievementAdapter(this, achievements)
 
         addAchBTN.setOnClickListener {
-            Log.i(activityTag, "add achievement button clicked...")
+            Log.i(TAG, "add achievement button clicked...")
             achievements = getAchievementList(achievements= achievements)
             achRecyclerView.adapter = AchievementAdapter(this, achievements)
         }
@@ -44,7 +44,7 @@ class AchievementsActivity: AppCompatActivity() {
 
     // PROVIDE DATA SOURCE FOR ACHIEVEMENT LIST
     private fun getAchievementList(): ArrayList<Achievement> {
-        Log.i(activityTag, "In getAchievementList() AchievementsActivity...")
+        Log.i(TAG, "In getAchievementList() AchievementsActivity...")
 
         var name: String
         val achievements = ArrayList<Achievement>()
@@ -58,7 +58,7 @@ class AchievementsActivity: AppCompatActivity() {
     }
 
     private fun getAchievementList(achievements: ArrayList<Achievement>): ArrayList<Achievement> {
-        Log.i(activityTag, "In getAchievementList() AchievementsActivity...")
+        Log.i(TAG, "In getAchievementList() AchievementsActivity...")
 
         var name: String
 

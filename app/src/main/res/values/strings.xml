@@ -35,4 +35,7 @@
     <string name="skills_display">Skills</string>
     <string name="george_clicked">george_clicked</string>
 
+    <!-- camera activity -->
+    <string name="cam_display">Camera</string>
+
 </resources>
