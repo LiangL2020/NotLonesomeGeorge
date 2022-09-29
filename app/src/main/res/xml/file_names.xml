@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--<paths xmlns:android="http://schemas.android.com/apk/res/android">-->
+<!--    <external-files-path name="my_images" path="Pictures" />-->
+<!--</paths>-->
+<paths>
+    <files-path name="photos" path="."/>
+    <files-path
+        name="cs4518-photos"
+        path="profile" />
+    <files-path
+        name="CS4518-logs"
+        path="log" />
+</paths>
