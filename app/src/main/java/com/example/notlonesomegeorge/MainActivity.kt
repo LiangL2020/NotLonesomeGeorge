@@ -13,6 +13,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var skillBTN: ImageButton
     private lateinit var georgBTN: ImageButton
     private lateinit var cameraBTN: ImageButton
+    private lateinit var hamburgerBTN : ImageButton
 
     var activityTag = "activityTag";
 
@@ -35,6 +36,7 @@ class MainActivity : AppCompatActivity() {
         achBTN = findViewById(R.id.tortoiseBTN)
         skillBTN = findViewById(R.id.hatBTN)
         cameraBTN = findViewById(R.id.cameraBTN)
+        hamburgerBTN = findViewById(R.id.hamburgerBTN)
 
         // DIRECT USER TO ACHIEVEMENTS ACTIVITY
         achBTN.setOnClickListener{
@@ -47,6 +49,12 @@ class MainActivity : AppCompatActivity() {
             Log.i(activityTag, "Directing to CAMERA activity...")
             call_camera()
         }
+
+        hamburgerBTN.setOnClickListener{
+            Log.i(activityTag, "Directing to NetWork activity...")
+            call_Network()
+        }
+
 
     }
 
@@ -63,4 +71,11 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, CameraActivity::class.java)
         startActivity(intent)
     }
+
+    private fun call_Network(){
+        Log.i(activityTag, "In call_network()...")
+        val intent = Intent(this, NetWorkActivity::class.java)
+        startActivity(intent)
+    }
+
 }
