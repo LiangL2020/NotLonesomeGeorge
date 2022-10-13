@@ -1,6 +1,5 @@
 package com.example.notlonesomegeorge
 
-import android.R
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
@@ -51,7 +50,7 @@ class RegisterActivity : AppCompatActivity() {
         // instance of our FIrebase database.
         firebaseDatabase = FirebaseDatabase.getInstance();
         // below line is used to get reference for our database.
-        databaseReference = firebaseDatabase.getReference("EmployeeInfo");
+        databaseReference = firebaseDatabase.getReference("UserInfo");
         // initializing our object
         // class variable.
         // initializing our object
