@@ -5,10 +5,12 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.*
+import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
 
 
@@ -52,7 +54,9 @@ class LoginActivity : AppCompatActivity() {
         databaseReference = firebaseDatabase.getReference("UserInfo")
 
         btnLogin.setOnClickListener {
-            login()
+//            login()
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
         }
 
         btnToRegister.setOnClickListener {
@@ -77,17 +81,19 @@ class LoginActivity : AppCompatActivity() {
         val eventListener: ValueEventListener = object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 if (!dataSnapshot.exists()) {
-                    //create new user
+                    // Get Post object and use the values to update the UI
+                    val post = dataSnapshot.getValue<String>()
+                    Log.i(activityTag, post.toString())
+                    Toast.makeText(this@LoginActivity, "Please Register", Toast.LENGTH_SHORT).show()
                 }
             }
 
             override fun onCancelled(databaseError: DatabaseError) {
                 Log.i(activityTag, databaseError.message) //Don't ignore errors!
+                Toast.makeText(this@LoginActivity, "Error occured", Toast.LENGTH_SHORT).show()
             }
         }
         userNameRef.addListenerForSingleValueEvent(eventListener)
-
-    }
 
         /*
         // calling signInWithEmailAndPassword(email, pass)
