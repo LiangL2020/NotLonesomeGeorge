@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.ImageButton
+import android.widget.TextView
+import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
 
@@ -14,6 +16,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var georgBTN: ImageButton
     private lateinit var cameraBTN: ImageButton
     private lateinit var hamburgerBTN : ImageButton
+    private lateinit var wdn: TextView
 
     var activityTag = "activityTag";
 
@@ -23,13 +26,24 @@ class MainActivity : AppCompatActivity() {
         Log.i(activityTag, "In onCreate() MainActivity...")
 
         // Image button clicked animate
+        wdn = findViewById(R.id.wealth_dandelion_num)
         georgBTN = findViewById(R.id.george_image_button)
+
+        var timesClicked = 0
+
         georgBTN.setOnClickListener {
+            Toast.makeText(this,"+1",Toast.LENGTH_SHORT ).show()
             Log.i(activityTag, "George is clicked; dandelion should be added...")
             georgBTN.animate().apply {
                 duration = 100
                 rotationYBy(360f)
             }.start()
+
+            timesClicked += 1
+            //wealth_dandelion_num.text = "$" + timesClicked.toString()
+
+            wdn.text = "$" + timesClicked.toString()
+
         }
 
         // INITIATE VARIABLES
