@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/olive_super_light_yellow"
-    tools:context=".MainActivity">
+    tools:context=".CameraActivity">
 
     <TextView
         android:id="@+id/display_cam"
@@ -78,30 +78,30 @@
         android:orientation="vertical"
         />
 
-    <TextView
-        android:id="@+id/camera_some_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/hguideline"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/vguideline"
-        android:layout_marginStart="20dp"
-        app:layout_constraintHorizontal_bias="0.1"
-        tools:text="Content to read from file!"
-        />
+<!--    <TextView-->
+<!--        android:id="@+id/camera_some_text"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/hguideline"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toStartOf="@id/vguideline"-->
+<!--        android:layout_marginStart="20dp"-->
+<!--        app:layout_constraintHorizontal_bias="0.1"-->
+<!--        tools:text="Content to read from file!"-->
+<!--        />-->
 
-    <Button
-        android:id="@+id/camera_reveal"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/hguideline"
-        app:layout_constraintStart_toStartOf="@id/vguideline"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:text="reveal"
-        android:textSize="14sp"
-        android:textColor="@color/white"
-        android:backgroundTint="@color/olive_dark_brown"
-        />
+<!--    <Button-->
+<!--        android:id="@+id/camera_reveal"-->
+<!--        android:layout_width="100dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/hguideline"-->
+<!--        app:layout_constraintStart_toStartOf="@id/vguideline"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        android:text="reveal"-->
+<!--        android:textSize="14sp"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:backgroundTint="@color/olive_dark_brown"-->
+<!--        />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
