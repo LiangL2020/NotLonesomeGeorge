@@ -1,10 +1,12 @@
 package com.example.notlonesomegeorge
 
+import android.animation.ObjectAnimator
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.ImageButton
+import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 
@@ -17,6 +19,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var cameraBTN: ImageButton
     private lateinit var hamburgerBTN : ImageButton
     private lateinit var wdn: TextView
+    private lateinit var exp: ProgressBar
+    private lateinit var LV: TextView
 
     var activityTag = "activityTag";
 
@@ -43,6 +47,21 @@ class MainActivity : AppCompatActivity() {
             //wealth_dandelion_num.text = "$" + timesClicked.toString()
 
             wdn.text = "$" + timesClicked.toString()
+
+            exp = findViewById(R.id.exp_bar)
+            exp.max = 10
+
+            val currentProgress = timesClicked / 10 % 10
+
+            LV = findViewById(R.id.level_display)
+            LV.text = "Lv: " + timesClicked / 100
+
+            ObjectAnimator.ofInt(exp,"progress",currentProgress)
+                .setDuration(2000)
+                .start()
+
+
+
 
         }
 
