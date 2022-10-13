@@ -97,7 +97,6 @@
                 android:layout_marginRight="20dp"
                 android:layout_weight="3"
                 android:contentDescription="@string/progress_bar"
-                android:progress="30"
                 android:progressBackgroundTint="@color/olive_orange"
                 android:progressTint="@color/olive_dark_green"
                 android:scaleY="3" />
