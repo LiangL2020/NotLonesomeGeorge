@@ -44,11 +44,16 @@ class LoginActivity : AppCompatActivity() {
         }
 
         btnToRegister.setOnClickListener {
-            val intent = Intent(this, RegisterActivity::class.java)
-            startActivity(intent)
-            // using finish() to end the activity
-            finish()
+            Log.i(activityTag, "btnToRegister clicked...")
+            call_register()
         }
+    }
+
+    // DIRECT USER TO ACHIEVEMENTS ACTIVITY
+    private fun call_register(){
+        Log.i(activityTag, "In call_ach()...")
+        val intent = Intent(this, RegisterActivity::class.java)
+        startActivity(intent)
     }
 
     private fun login() {
