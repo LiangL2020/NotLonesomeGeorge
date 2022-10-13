@@ -1,30 +1,19 @@
 package com.example.notlonesomegeorge
 
-import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
-import android.os.Environment
 import android.provider.MediaStore
 import android.util.Log
 import android.widget.ImageButton
 import android.widget.ImageView
-import android.widget.Toast
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
-import androidx.core.view.doOnLayout
-import com.example.notlonesomegeorge.Configs.configPicasso
 import com.example.notlonesomegeorge.Configs.createDefaultProfileDir
-import com.example.notlonesomegeorge.Configs.createUri
-import com.example.notlonesomegeorge.Configs.getDefaultLogDir
-import com.example.notlonesomegeorge.Configs.getDefaultProfileDir
-import com.example.notlonesomegeorge.Utils.canResolveIntent
-import com.example.notlonesomegeorge.Utils.getScaledBitmap
 import com.example.notlonesomegeorge.databinding.ActivityCameraBinding
 import java.io.File
+import java.io.FileNotFoundException
 import java.io.IOException
 import java.text.SimpleDateFormat
 import java.util.*
@@ -42,6 +31,7 @@ class CameraActivity: AppCompatActivity() {
     private lateinit var cam_btn: ImageButton
     private lateinit var cam_view: ImageView
     private lateinit var currentPhotoPath: String
+    private lateinit var photoURI: Uri
     private var count = 0
 
     /*
@@ -148,13 +138,35 @@ class CameraActivity: AppCompatActivity() {
     */
 
     // From Android Developer
+//    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+//        Log.i(TAG,"in onActivityResult() CameraActivity...")
+//        super.onActivityResult(requestCode, resultCode, data)
+//        if (requestCode == REQUEST_CODE && resultCode == RESULT_OK) {
+//            val imageBitmap = data?.extras?.get("data") as? Bitmap
+//            cam_view.setImageBitmap(imageBitmap)
+//        }
+//    }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         Log.i(TAG,"in onActivityResult() CameraActivity...")
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == REQUEST_CODE && resultCode == RESULT_OK) {
-            val imageBitmap = data?.extras?.get("data") as? Bitmap
-            cam_view.setImageBitmap(imageBitmap)
+//        if (data == null){
+//            return;
+//        } else
+        if (requestCode === REQUEST_CODE && resultCode === RESULT_OK) {
+            val bitmap: Bitmap
+            try {
+                bitmap = MediaStore.Images.Media.getBitmap(contentResolver, photoURI)
+                cam_view.setImageBitmap(bitmap)
+            } catch (e: FileNotFoundException) {
+                e.printStackTrace()
+            } catch (e: IOException) {
+                e.printStackTrace()
+            }
         }
+//        if(requestCode == REQUEST_CODE && resultCode == RESULT_OK) {
+////            val imageBitmap = data.extras.get("data") as Bitmap
+////            cam_view.setImageBitmap(imageBitmap)
+//        }
     }
 
     @Throws(IOException::class)
@@ -173,9 +185,7 @@ class CameraActivity: AppCompatActivity() {
             storageDir /* directory */
         ).apply {
             // Save a file: path for use with ACTION_VIEW intents
-            Log.i(TAG,"saving to file in CameraActivity...")
             currentPhotoPath = absolutePath
-            Log.i(TAG,"saved to ${storageDir} in CameraActivity...")
         }
     }
 
@@ -183,7 +193,6 @@ class CameraActivity: AppCompatActivity() {
         Log.i(TAG,"in dispatchTakePictureIntent() CameraActivity...")
         Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { takePictureIntent ->
             // Ensure that there's a camera activity to handle the intent
-            Log.i(TAG,"camera activity?...")
             takePictureIntent.resolveActivity(packageManager)?.also {
                 // Create the File where the photo should go
                 val photoFile: File? = try {
@@ -195,13 +204,13 @@ class CameraActivity: AppCompatActivity() {
                 }
                 // Continue only if the File was successfully created
                 photoFile?.also {
-                    val photoURI: Uri = FileProvider.getUriForFile(
+//                    val photoURI: Uri = FileProvider.getUriForFile(
+                    photoURI = FileProvider.getUriForFile(
                         this,
                         "com.example.android.fileprovider",
                         it
                     )
                     takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI)
-                    Log.d(TAG, "before calling the camera activity")
                     startActivityForResult(takePictureIntent, REQUEST_CODE)
                 }
             }
