@@ -23,6 +23,10 @@ class MainActivity : AppCompatActivity() {
     private lateinit var LV: TextView
 
     var activityTag = "activityTag";
+    var timesClicked = 0
+    var expValue = 0
+    var LvValue = 0
+    var wdnValue = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,7 +37,7 @@ class MainActivity : AppCompatActivity() {
         wdn = findViewById(R.id.wealth_dandelion_num)
         georgBTN = findViewById(R.id.george_image_button)
 
-        var timesClicked = 0
+
 
         georgBTN.setOnClickListener {
             Toast.makeText(this,"+1",Toast.LENGTH_SHORT ).show()
@@ -46,15 +50,19 @@ class MainActivity : AppCompatActivity() {
             timesClicked += 1
             //wealth_dandelion_num.text = "$" + timesClicked.toString()
 
-            wdn.text = "$" + timesClicked.toString()
+            wdnValue = timesClicked
+            wdn.text = "$" + wdnValue.toString()
 
             exp = findViewById(R.id.exp_bar)
             exp.max = 10
 
-            val currentProgress = timesClicked / 10 % 10
+
+            expValue = timesClicked / 10 % 10
+            val currentProgress = expValue
 
             LV = findViewById(R.id.level_display)
-            LV.text = "Lv: " + timesClicked / 100
+            LvValue = timesClicked / 100
+            LV.text = "Lv: " + LvValue
 
             ObjectAnimator.ofInt(exp,"progress",currentProgress)
                 .setDuration(2000)
@@ -109,6 +117,18 @@ class MainActivity : AppCompatActivity() {
         Log.i(activityTag, "In call_network()...")
         val intent = Intent(this, NetWorkActivity::class.java)
         startActivity(intent)
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putInt("tc", timesClicked)
+        Log.i(activityTag, "in onSaveInstanceState: saving states")
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        timesClicked = savedInstanceState.getInt("tc", 0)
+        Log.i(activityTag, "in onRestoreInstanceState: restoring states")
     }
 
 }
