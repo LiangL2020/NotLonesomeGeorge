@@ -48,11 +48,9 @@ class RegisterActivity : AppCompatActivity() {
         auth = Firebase.auth
 
         // instance of our FIrebase database.
-        firebaseDatabase = FirebaseDatabase.getInstance();
+        firebaseDatabase = FirebaseDatabase.getInstance()
         // below line is used to get reference for our database.
-        databaseReference = firebaseDatabase.getReference("UserInfo");
-        // initializing our object
-        // class variable.
+        databaseReference = firebaseDatabase.getReference("UserInfo")
         // initializing our object
         // class variable.
         userInfo = UserInfo()

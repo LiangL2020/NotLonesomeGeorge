@@ -1,17 +1,16 @@
 package com.example.notlonesomegeorge
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-
 import android.widget.Button
 import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.*
 import com.google.firebase.ktx.Firebase
+
 
 class LoginActivity : AppCompatActivity() {
 
@@ -21,6 +20,14 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var etPass: EditText
     private lateinit var btnLogin: Button
     private lateinit var btnToRegister: Button
+
+    // creating a variable for our
+    // Firebase Database.
+    private lateinit var firebaseDatabase: FirebaseDatabase
+    // creating a variable for our Database
+    // Reference for Firebase.
+    private lateinit var databaseReference: DatabaseReference
+
     var activityTag = "activityTag";
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,6 +46,11 @@ class LoginActivity : AppCompatActivity() {
         // initialising Firebase auth object
         auth = FirebaseAuth.getInstance()
 
+        // instance of our FIrebase database.
+        firebaseDatabase = FirebaseDatabase.getInstance()
+        // below line is used to get reference for our database.
+        databaseReference = firebaseDatabase.getReference("UserInfo")
+
         btnLogin.setOnClickListener {
             login()
         }
@@ -51,7 +63,7 @@ class LoginActivity : AppCompatActivity() {
 
     // DIRECT USER TO ACHIEVEMENTS ACTIVITY
     private fun call_register(){
-        Log.i(activityTag, "In call_ach()...")
+        Log.i(activityTag, "In call_register()...")
         val intent = Intent(this, RegisterActivity::class.java)
         startActivity(intent)
     }
@@ -59,6 +71,25 @@ class LoginActivity : AppCompatActivity() {
     private fun login() {
         val email = etEmail.text.toString()
         val pass = etPass.text.toString()
+
+        val rootRef = FirebaseDatabase.getInstance().reference
+        val userNameRef = rootRef.child("UserEmail").child(email)
+        val eventListener: ValueEventListener = object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                if (!dataSnapshot.exists()) {
+                    //create new user
+                }
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+                Log.i(activityTag, databaseError.message) //Don't ignore errors!
+            }
+        }
+        userNameRef.addListenerForSingleValueEvent(eventListener)
+
+    }
+
+        /*
         // calling signInWithEmailAndPassword(email, pass)
         // function using Firebase auth object
         // On successful response Display a Toast
@@ -68,5 +99,6 @@ class LoginActivity : AppCompatActivity() {
             } else
                 Toast.makeText(this, "Log-In failed ", Toast.LENGTH_SHORT).show()
         }
+        */
     }
 }
