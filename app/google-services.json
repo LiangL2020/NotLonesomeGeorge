@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "511352678397",
+    "project_id": "cs4518-notlonesomegeorge",
+    "storage_bucket": "cs4518-notlonesomegeorge.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:511352678397:android:dfbe90096ef2034d811b94",
+        "android_client_info": {
+          "package_name": "com.example.notlonesomegeorge"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "511352678397-tpi5jdfsgl5nq1j8pvbrl2ri3otsqbkc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDKyEzsPPttYaEqw7KHOMfe1pxxYEmMbL8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "511352678397-tpi5jdfsgl5nq1j8pvbrl2ri3otsqbkc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
